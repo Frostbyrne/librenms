@@ -125,7 +125,8 @@ Route::middleware(['auth'])->group(function (): void {
         Route::put('/device/{device}/edit/misc', [Device\EditMiscController::class, 'update'])->name('device.edit.misc.update');
         Route::post('/device/{device}/rediscover', [DeviceController::class, 'rediscover'])->name('device.rediscover');
         Route::get('device/bulk-delete', [BulkDeleteDeviceController::class, 'index'])->name('device.bulk-delete');
-        Route::post('device/bulk-delete', [BulkDeleteDeviceController::class, 'destroy'])->name('device.bulk-delete.destroy');
+        Route::post('device/bulk-delete', [BulkDeleteDeviceController::class, 'destroy'])
+            ->name('device.bulk-delete.destroy');
     });
 
     Route::prefix('device/{device}')->name('device.')->group(function (): void {

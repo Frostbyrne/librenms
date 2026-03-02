@@ -72,7 +72,9 @@
                         data-sortable="true" data-identifier="true">{{ __('Device') }}</th>
                     <th data-column-id="metrics" data-formatter="htmlFormatter"
                         data-sortable="false" data-searchable="false">{{ __('Metrics') }}</th>
-                    <th data-column-id="os" data-formatter="htmlFormatter" data-sortable="true">{{ __('Operating System') }}</th>
+                    <th data-column-id="os" data-formatter="htmlFormatter" data-sortable="true">
+                        {{ __('Operating System') }}
+                    </th>
                     <th data-column-id="uptime" data-sortable="true">{{ __('Uptime') }}</th>
                     <th data-column-id="location" data-sortable="true">{{ __('Location') }}</th>
                 </tr>
@@ -152,7 +154,9 @@
                     return row[column.id];
                 },
                 extraFormatter: function (column, row) {
-                    return '<span class="alert-status ' + (row.extra || 'label-default') + '" style="width:7px;height:32px;display:inline-block;"></span>';
+                    var statusClass = row.extra || 'label-default';
+                    return '<span class="alert-status ' + statusClass +
+                           '" style="width:7px;height:32px;display:inline-block;"></span>';
                 },
             },
             post: buildPost,

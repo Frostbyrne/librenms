@@ -99,10 +99,13 @@ class BulkDeleteDeviceController extends Controller
             ];
 
             if (! empty($unauthorized)) {
-                $response['message'] = __('Deleted :deleted device(s). Skipped :count due to insufficient permissions.', [
-                    'deleted' => $deleted,
-                    'count' => count($unauthorized),
-                ]);
+                $response['message'] = __(
+                    'Deleted :deleted device(s). Skipped :count due to insufficient permissions.',
+                    [
+                        'deleted' => $deleted,
+                        'count' => count($unauthorized),
+                    ]
+                );
                 $response['status'] = 'warning';
             } elseif (! empty($not_found)) {
                 $response['message'] = __('Deleted :deleted device(s). :count device(s) were not found.', [
