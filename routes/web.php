@@ -8,6 +8,7 @@ use App\Http\Controllers\AlertRuleTemplateController;
 use App\Http\Controllers\AlertTransportController;
 use App\Http\Controllers\Auth;
 use App\Http\Controllers\Auth\SocialiteController;
+use App\Http\Controllers\BulkDeleteDeviceController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\DashboardWidgetController;
 use App\Http\Controllers\Device;
@@ -123,6 +124,8 @@ Route::middleware(['auth'])->group(function (): void {
         Route::get('/device/{device}/edit/misc', [Device\EditMiscController::class, 'index'])->name('device.edit.misc');
         Route::put('/device/{device}/edit/misc', [Device\EditMiscController::class, 'update'])->name('device.edit.misc.update');
         Route::post('/device/{device}/rediscover', [DeviceController::class, 'rediscover'])->name('device.rediscover');
+        Route::get('device/bulk-delete', [BulkDeleteDeviceController::class, 'index'])->name('device.bulk-delete');
+        Route::post('device/bulk-delete', [BulkDeleteDeviceController::class, 'destroy'])->name('device.bulk-delete.destroy');
     });
 
     Route::prefix('device/{device}')->name('device.')->group(function (): void {

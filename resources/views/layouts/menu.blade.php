@@ -182,6 +182,8 @@
                                                               aria-hidden="true"></i> {{ __('Add Device') }}</a></li>
                         <li><a href="{{ url('delhost') }}"><i class="fa fa-trash fa-fw fa-lg"
                                                               aria-hidden="true"></i> {{ __('Delete Device') }}</a></li>
+                        <li><a href="{{ route('device.bulk-delete') }}"><i class="fa fa-trash-o fa-fw fa-lg"
+                                                              aria-hidden="true"></i> {{ __('Bulk Delete Devices') }}</a></li>
                     @endadmin
 
                     </ul>
